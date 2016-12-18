@@ -1,4 +1,4 @@
-const worries = ['Death', 'Taxes', 'Brexit', 'Trump']
+const worries = ['Death', 'Taxes', 'Brexit', 'Trump', 'Stress']
 
 const randomWorry = () => {
   if (worries.length) {
