@@ -14,9 +14,9 @@ const mapDispatchToProps = (dispatch) => {
     onChangeWorry: (e) => {
       dispatch(changeWorryFormWorry(e.target.value))
     },
-    onSubmit: (e) => {
+    onSubmit: (e, date, worry) => {
       e.preventDefault()
-      dispatch(updateWorry())
+      dispatch(updateWorry(date, worry))
     }
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import ConnectedWorry from '../containers/connectedWorry'
+import ConnectedWorryCalendar from '../containers/connectedWorryCalendar'
 
 const Home = () => (
   <div id='home' className="text-xs-center">
@@ -9,7 +9,7 @@ const Home = () => (
       <h1>A worry a day</h1>
     </div>
     <h2>Gently nudging you towards the precipice</h2>
-    <ConnectedWorry />
+    <ConnectedWorryCalendar />
   </div>
 )
 
