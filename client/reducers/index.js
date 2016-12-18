@@ -1,13 +1,7 @@
-import types from '../actions/types'
-import randomWorry from '../worries'
+import { combineReducers } from 'redux'
+import worryCalendar from './worryCalendar'
+import worryForm from './worryForm'
 
-const root = (state = {}, action) => {
-  switch (action.type) {
-    case types.NEW_WORRY:
-      return { worry: randomWorry() }
-    default:
-      return state
-  }
-}
+let root = combineReducers({ worryCalendar, worryForm })
 
 export default root

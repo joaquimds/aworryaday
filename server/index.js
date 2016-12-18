@@ -9,13 +9,13 @@ app.engine('mustache', mustacheExpress())
 app.set('view engine', 'mustache')
 app.set('views', path.resolve(__dirname, 'views'))
 
-app.get('/', (req, res) => {
+const assetPath = path.resolve(__dirname, '..', 'public')
+app.use(express.static(assetPath))
+
+app.get('/*', (req, res) => {
   const scripts = process.env.NODE_ENV === 'production' ? '' : '//localhost:8080'
   res.render('index.mustache', { scripts })
 })
-
-const assetPath = path.resolve(__dirname, '..', 'public')
-app.use(express.static(assetPath))
 
 const server = http.createServer(app)
 

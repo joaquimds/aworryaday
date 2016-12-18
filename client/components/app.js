@@ -1,12 +1,13 @@
 import React from 'react'
-import ConnectedWorry from '../containers/connectedWorry'
+import { Router, Route, browserHistory } from 'react-router'
+import Home from './home'
+import Admin from './admin'
 
 const App = () => (
-  <div className="container pt-1 pb-1 text-xs-center">
-    <h1>A worry a day</h1>
-    <h2>Gently nudging you towards the precipice</h2>
-    <ConnectedWorry />
-  </div>
+  <Router history={browserHistory}>
+    <Route path="/" component={Home} />
+    <Route path="/admin" component={Admin} />
+  </Router>
 )
 
 export default App

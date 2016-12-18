@@ -1,17 +1,18 @@
 import { connect } from 'react-redux'
-import { newWorry } from '../actions'
+import { nextWorry, previousWorry } from '../actions'
 import Worry from '../components/worry'
 
 const mapStateToProps = (state) => {
-  return {
-    worry: state.worry
-  }
+  return Object.assign({}, state.worryCalendar)
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    newWorry: () => {
-      dispatch(newWorry())
+    nextWorry: () => {
+      dispatch(nextWorry())
+    },
+    previousWorry: () => {
+      dispatch(previousWorry())
     }
   }
 }
