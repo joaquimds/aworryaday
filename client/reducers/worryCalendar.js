@@ -10,6 +10,8 @@ const worryCalendar = (state = initialState, action) => {
       return Object.assign({}, state, { worry: action.worry, date: action.date, loading: false })
     case types.GET_WORRY_FAILURE:
       return Object.assign({}, state, { worry: 'Failed', date: action.date, loading: false })
+    case types.UPDATE_WORRY_SUCCESS:
+      return Object.assign({}, state, { worry: action.worry, date: action.date, loading: false })
     default:
       return state
   }

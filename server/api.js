@@ -13,7 +13,7 @@ router.put('/worries/:date', (req, res, next) => {
   }
   const dateString = date.format('YYYY-MM-DD')
   db.query(
-    'INSERT INTO worries VALUES ($1, $2) ON CONFLICT (date) DO UPDATE SET text = EXCLUDED.text',
+    'INSERT INTO worries (date, text) VALUES ($1, $2) ON CONFLICT (date) DO UPDATE SET text = EXCLUDED.text',
     [ dateString, text ],
     err => {
       if (err) {
