@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { changeWorryFormDate, changeWorryFormWorry, updateWorry } from '../actions'
-import WorryForm from '../components/WorryForm'
+import WorryForm from '../components/worryForm'
 
 const mapStateToProps = (state) => {
   return Object.assign({}, state.worryForm)
