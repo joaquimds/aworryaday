@@ -8,14 +8,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onChangeDate: (e) => {
-      dispatch(changeWorryFormDate(e.target.value))
+    onChangeDate: (date) => {
+      dispatch(changeWorryFormDate(date))
     },
-    onChangeWorry: (e) => {
-      dispatch(changeWorryFormWorry(e.target.value))
+    onChangeWorry: (worry) => {
+      dispatch(changeWorryFormWorry(worry))
     },
-    onSubmit: (e, date, worry) => {
-      e.preventDefault()
+    onSubmit: (date, worry) => {
       dispatch(updateWorry(date, worry))
     }
   }

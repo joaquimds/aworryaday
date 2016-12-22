@@ -1,20 +1,23 @@
 import express from 'express'
 import moment from 'moment'
 import db from './db'
-
 const router = express.Router()
 
 router.put('/worries/:date', (req, res, next) => {
   const date = moment(req.params.date)
-  const text = req.body.text
+  const worry = req.body.worry
 
-  if (!date.isValid() || !text) {
+  if (!req.user) {
+    return res.sendStatus(403)
+  }
+
+  if (!date.isValid() || !worry) {
     return res.sendStatus(400)
   }
   const dateString = date.format('YYYY-MM-DD')
   db.query(
     'INSERT INTO worries (date, text) VALUES ($1, $2) ON CONFLICT (date) DO UPDATE SET text = EXCLUDED.text',
-    [ dateString, text ],
+    [ dateString, worry ],
     err => {
       if (err) {
         return next(err)
